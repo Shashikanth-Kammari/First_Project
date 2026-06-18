@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mysql
+  labels:
+    component: mysql
+    tier: db
+    project: macys
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      component: mysql
+      tier: db
+      project: macys
+  template:
+    metadata:
+      labels:
+        component: mysql
+        tier: db
+        project: macys
+    spec:
+      containers:
+      - name: mysql
+        image: shashikanth/mysql:v1.0
