@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name:  macys
+  labels:
+    name: macys
+    environment: dev
