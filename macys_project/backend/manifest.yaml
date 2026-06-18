@@ -1,29 +1,29 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: mysql
+  name: backend
   namespace: macys
   labels:
-    component: mysql
-    tier: db
+    component: backend
+    tier: app
     project: macys
 spec:
   replicas: 2
   selector:
     matchLabels:
-      component: mysql
-      tier: db
+      component: backend
+      tier: app
       project: macys
   template:
     metadata:
       labels:
-        component: mysql
-        tier: db
+        component: backend
+        tier: app
         project: macys
     spec:
       containers:
-      - name: mysql
-        image: shashikanth/mysql:v1.0
+      - name: backend
+        image: shashikanth/backend:v1.0
 
 ---
 
@@ -35,9 +35,9 @@ metadata:
 spec:
   selector:
     component: mysql
-    tier: db
+    tier: app
     project: macys
   ports:
     - protocol: TCP
-      port: 3306
-      targetPort: 3306
+      port: 8080
+      targetPort: 8080
