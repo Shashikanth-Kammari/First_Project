@@ -47,8 +47,9 @@ metadata:
   name: Macys-service
   namespace: macys
 spec:
+  type: LoadBalancer
   selector:
-    component: mysql
+    component: frontend
     tier: web
     project: macys
   ports:
