@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: myapp
+  namespace: Bcom
+  labels:
+    type: myapp
+    namespace: Bcom
+spec:
+  containers:
+  - name: myapp
+    image: nginx
+  containers:
+  - name: logs
+    image: alamalinux
