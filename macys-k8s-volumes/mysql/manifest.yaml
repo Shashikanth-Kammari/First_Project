@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: mysql
+  namespace: macys
+spec:
+  accessModes:
+    - ReadWriteOnce
+  storageClassName: macys-ebs
+  resources:
+    requests:
+      storage: 4Gi
