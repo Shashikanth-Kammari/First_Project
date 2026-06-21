@@ -3,4 +3,5 @@ kind: storageClass
 metadata:
   name: macys-ebs
 provissioner: ebs.csi.aws.com
+reclaimPolicy: Retain
 volumeBindingMode: WaitForFirstConsumer
