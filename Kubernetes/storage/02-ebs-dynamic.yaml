@@ -1,7 +1,32 @@
-apiVersion: storage.k8s.io/v1
-kind: storageClass 
+apiVersion: v1
+kind: PersistentVolumeClaim
 metadata:
-  name: macys-ebs
-provissioner: ebs.csi.aws.com
-reclaimPolicy: Retain
-volumeBindingMode: WaitForFirstConsumer
+  name: ebs-dynamic
+spec:
+  accessModes:
+    - ReadWriteOnce
+  storageClassName: macys-ebs
+  VolumeName: ebs-dynamic
+  resources:
+    requests:
+      storage: 4Gi
+---
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-dynamic
+  labels:
+    purpose: ebs-static
+    project: expense
+spec:
+  containers:
+    - name: nginx
+      image: nginx:latest
+      volumeMounts:
+        - mountPath: /usr/share/nginx/html
+          name: persistant-storage
+  volumes:
+    - name: app-data-volume
+      persistentVolumeClaim:
+        claimName: ebs-static
