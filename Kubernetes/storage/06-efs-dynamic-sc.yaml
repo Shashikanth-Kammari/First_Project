@@ -7,3 +7,4 @@ parameters:
   provisioningMode: efs-ap
   FilesystemId: fs-05364gfdgdf
   basepath: "/macys"
+  directoryPerms: "700"
