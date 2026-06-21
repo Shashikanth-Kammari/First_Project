@@ -29,3 +29,20 @@ spec:
       storage: 
       
 ---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: efs-app-pod
+spec:
+  containers:
+    - name: app
+      image: nginx
+      ports:
+        - containerPort: 80
+      volumeMounts:
+        - name: efs-storage
+          mountPath: /usr/share/nginx/html
+  volumes:
+    - name: efs-storage
+      persistentVolumeClaim:
+        claimName: efs-static-claim
