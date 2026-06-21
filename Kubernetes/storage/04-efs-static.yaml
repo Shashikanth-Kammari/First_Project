@@ -1,0 +1,31 @@
+apiVersion: v1 
+kind: PersistantVolume
+metadata:
+  name: macys-efs-statis
+spec:
+  capacity:
+   storage: 5Gi
+  volumeMode:  Filesystem
+  accessModes:
+  - ReadWriteOnce
+  storageClassName: ""
+  persistentVolumeReClaimPolicy: Retain
+  csi:
+    driver: efs.csi.aws.com
+    volumeHandle: "fs-e6346536xdc"
+---
+
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: efs-static-claim
+spec:
+  accessModes:
+    - ReadWriteOnce
+  storageClassName: ""
+  VolumeName: efs-static
+  resources:
+    requests:
+      storage: 
+      
+---
