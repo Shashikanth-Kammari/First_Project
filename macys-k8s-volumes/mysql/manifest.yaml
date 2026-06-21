@@ -10,3 +10,43 @@ spec:
   resources:
     requests:
       storage: 4Gi
+
+---
+
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: mysql
+  namespace: macys
+  labels:
+    component: mysql
+    project: macys
+    tier: db
+spec:
+  selector:
+    matchLabels:
+      component: mysql
+      project: macys
+      tier: db
+  serviceName: "nginx"
+  replicas: 3 # by default is 1
+  template:
+    metadata:
+      labels:
+        component: mysql
+        project: macys
+        tier: db
+    spec:
+      containers:
+      - name: nginx
+        image: shashikanth.mysql:v1.0.0
+        ports:
+        - containerPort: 80
+          name: web
+        volumeMounts:
+        - name: mysql
+          mountPath: /var/lib/mysql
+      volumes:
+      - name: mysql
+        persistentVolumeClaim:
+          claimName: mysql
