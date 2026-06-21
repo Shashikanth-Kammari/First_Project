@@ -50,3 +50,20 @@ spec:
       - name: mysql
         persistentVolumeClaim:
           claimName: mysql
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mysql
+  namespace: macys
+spec:
+  clusterIP: None
+  selector:
+    component: mysql
+    project: macys
+    tier: db
+  ports:
+    - protocol: TCP
+      port: 3306
+      targetPort: 3306
