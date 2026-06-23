@@ -8,7 +8,7 @@ metadata:
     tier: db
     project: macys
 spec:
-  replicas: 2
+  replicas: {{ .Values.deployment.replicas }}
   selector:
     matchLabels:
       component: mysql
@@ -23,4 +23,4 @@ spec:
     spec:
       containers:
       - name: mysql
-        image: shashikanth/mysql:v1.0
+        image: mysql:{{ .Values.deployment.image }}
