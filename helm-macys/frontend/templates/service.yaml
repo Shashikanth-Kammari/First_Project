@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: Macys-service
+  namespace: macys
+spec:
+  type: LoadBalancer
+  selector:
+    component: frontend
+    tier: web
+    project: macys
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8080

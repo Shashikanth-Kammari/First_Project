@@ -1,0 +1,4 @@
+apiVersion: v1 
+name: frontend
+version: 1.0.0
+description: frontend implementation in macys project

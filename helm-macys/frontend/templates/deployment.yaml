@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend
+  namespace: macys
+  labels:
+    component: frontend
+    tier: web
+    project: macys
+spec:
+  replicas: {{ .Values.deployment.replicas }}
+  selector:
+    matchLabels:
+      component: frontend
+      tier: web
+      project: macys
+  template:
+    metadata:
+      labels:
+        component: frontend
+        tier: web
+        project: macys
+    spec:
+      containers:
+      - name: frontend
+        image: shashikanth/frontend:{{ .Values.deplyment.imagesversion }}
+        # envFrom:
+        #   configMapRef:
+        #     name: frontend
