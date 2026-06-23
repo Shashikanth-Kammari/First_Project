@@ -48,10 +48,15 @@ spec:
         volumeMounts:
         - name: mysql
           mountPath: /var/lib/mysql
-      volumes:
-      - name: mysql
-        persistentVolumeClaim:
-          claimName: mysql
+  volumeClaimTemplates:
+  - metadata:
+      name: mysql
+    spec:
+      accessModes: ["ReadWriteOnce"]
+      storageClassName: "macys-ebs"
+      resources:
+        requests:
+          storage: 1G
 
 ---
 apiVersion: v1
