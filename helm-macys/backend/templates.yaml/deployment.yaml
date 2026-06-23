@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend
+  namespace: macys
+  labels:
+    component: backend
+    tier: app
+    project: macys
+spec:
+  replicas: {{ .Values.deployment.replicas }}
+  selector:
+    matchLabels:
+      component: backend
+      tier: app
+      project: macys
+  template:
+    metadata:
+      labels:
+        component: backend
+        tier: app
+        project: macys
+    spec:
+      containers:
+      - name: backend
+        image: {{ .Values.deployment.image }}
+        envFrom:
+          configMapRef:
+            name: backend
