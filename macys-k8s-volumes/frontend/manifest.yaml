@@ -1,0 +1,58 @@
+# apiVersion: v1
+# kind: ConfigMap
+# metadata:
+#   name: frontend-configmap
+#   namespace: macys
+# data:
+#   DB_HOST: mysql #mysql config service name
+
+
+---
+
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend
+  namespace: macys
+  labels:
+    component: frontend
+    tier: web
+    project: macys
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      component: frontend
+      tier: web
+      project: macys
+  template:
+    metadata:
+      labels:
+        component: frontend
+        tier: web
+        project: macys
+    spec:
+      containers:
+      - name: frontend
+        image: shashikanth/frontend:v1.0
+        # envFrom:
+        #   configMapRef:
+        #     name: frontend
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: Macys-service
+  namespace: macys
+spec:
+  type: LoadBalancer
+  selector:
+    component: frontend
+    tier: web
+    project: macys
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8080
