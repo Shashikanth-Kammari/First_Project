@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: Macys-service
+  namespace: macys
+spec:
+  selector:
+    component: mysql
+    tier: db
+    project: macys
+  ports:
+    - protocol: TCP
+      port: {{ .Values.service.port }}
+      targetPort: {{ .Values.service.port }}
