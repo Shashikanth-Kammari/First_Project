@@ -4,26 +4,21 @@ metadata:
   name: backend
   namespace: macys
   labels:
-    component: backend
-    tier: app
-    project: macys
+    purpose: helm
+    app: nginx
 spec:
-  replicas: {{ .Values.deployment.replicas}}
+  replicas: {{ .Values.deployment.replicas }}
   selector:
     matchLabels:
-      component: backend
-      tier: app
-      project: macys
+      purpose: helm
+      app: nginx
   template:
     metadata:
       labels:
-        component: backend
-        tier: app
-        project: macys
+        purpose: helm
+        app: nginx
     spec:
       containers:
       - name: backend
-        image:{{Values.deployment.imageversion}}                      
-        envFrom:
-          configMapRef:
-            name: backend
+        image: nginx:{{Values.deployment.imageversion}}                      
+        

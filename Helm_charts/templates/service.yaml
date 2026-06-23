@@ -5,9 +5,8 @@ metadata:
   namespace: macys
 spec:
   selector:
-    component: mysql
-    tier: app
-    project: macys
+    purpose: helm
+    app: nginx
   ports:
     - protocol: TCP
       port: 8080
