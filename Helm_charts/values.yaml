@@ -1,5 +1,5 @@
 deployment:
   imageversion: latest
-  replicas: 1
+  replicas: 3
 service: 
   port: 8080
