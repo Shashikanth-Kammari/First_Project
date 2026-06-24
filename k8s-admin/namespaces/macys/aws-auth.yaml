@@ -8,13 +8,13 @@ data:
       username: system:node:{{EC2PrivateDNSName}}
   mapUsers: |
     - groups:
-      - system:masters
+      - macys-pod-reader
       userarn: arn:aws:iam::3824264667:user/shashi
       username: shashi
 kind: apiVersion: v1
 kind: ConfigMap
 metadata:
-  creationTimestamp: "default""
+  creationTimestamp: "default"
   name: aws-auth
   namespace: kube-system
   resourceVersion: "1377"
