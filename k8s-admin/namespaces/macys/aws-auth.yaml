@@ -11,13 +11,11 @@ data:
       - macys-pod-reader
       userarn: arn:aws:iam::3824264667:user/shashi
       username: shashi
-kind: apiVersion: v1
 kind: ConfigMap
 metadata:
   creationTimestamp: "default"
   name: aws-auth
   namespace: kube-system
-  resourceVersion: "1377"
-  uid: eeenf324-5dfsf0r-87987yjhjgjg76
+  uid: eeenf324-5dfsf0r-87987yjhjgjg76  #don't delete this  
 
 
