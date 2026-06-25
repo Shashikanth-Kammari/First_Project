@@ -16,3 +16,8 @@ spec:
   - name: with-node-affinity
     image: nginx
     imagePullPolicy: always
+  tolerations:
+  - key: "project"
+    operator: "Equal"
+    value: "macys"
+    effect: "NoSchedule"
