@@ -11,6 +11,5 @@ spec:
   containers:
   - name: myapp
     image: nginx
-  containers:
   - name: logs
     image: alamalinux
