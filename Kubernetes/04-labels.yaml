@@ -6,6 +6,7 @@ metadata:
   labels:
     type: myapp
     namespace: Bcom
+    tier: web
 spec:
   containers:
   - name: myapp
