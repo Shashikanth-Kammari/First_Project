@@ -44,12 +44,12 @@ metadata:
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   rules:
-    - host: macys.shopping.com
+    - host: macys.shopping.com #ALB rule 
       http:
         paths:
           - path: /api
             backend:
               service:
-                name: app1
+                name: app1  # ALB target group
                 port:
                   number: 80
