@@ -48,7 +48,7 @@ metadata:
 spec:  
   ingressClassName: alb  
   rules:
-    - host: macys.shopping.com #ALB rule 
+    - host: macys.app1.com #ALB rule 
       http:
         paths:
           - path: /api
