@@ -42,11 +42,11 @@ metadata:
   name: app1
   annotations:
     alb.ingress.kubernetes.io/scheme: internet-facing
-    kubernetes.io/ingress.class: alb
     alb.ingress.kubernetes.io/target-type: ip
     alb.ingress.kubernetes.io/tags: Environment=dev,Team=test
     alb.ingress.kubernetes.io/group.name: shashikanth 
-spec:    
+spec:  
+  ingressClassName: alb  
   rules:
     - host: macys.shopping.com #ALB rule 
       http:
