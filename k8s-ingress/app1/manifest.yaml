@@ -41,8 +41,11 @@ kind: Ingress
 metadata:
   name: example-ingress
   annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /
-spec:
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/target-type: ip
+    alb.ingress.kubernetes.io/tags: Environment=dev,Team=test
+    alb.ingress.kubernetes.io/group.name: shashikanth 
+spec:    
   rules:
     - host: macys.shopping.com #ALB rule 
       http:
