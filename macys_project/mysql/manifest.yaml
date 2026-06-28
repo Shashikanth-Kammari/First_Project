@@ -24,6 +24,18 @@ spec:
       containers:
       - name: mysql
         image: shashikanth/mysql:v1.0
+      livenessProbe:
+        tcpSocket:
+          port: 3306
+        initialDelaySeconds: 10  # Wait before checking the first time
+        periodSeconds: 10        # Interval between checks
+
+    # Pulls the container out of the load balancer if /readyz fails
+      readinessProbe:
+        tcpSocket:
+          port: 80
+        initialDelaySeconds: 5   # Checks much sooner during startup
+        periodSeconds: 5         # Evaluated frequently for quick isolation
 
 ---
 
