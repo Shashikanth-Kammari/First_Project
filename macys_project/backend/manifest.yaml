@@ -39,6 +39,20 @@ spec:
         envFrom:
           configMapRef:
             name: backend
+      livenessProbe:
+        httpGet:
+          path: /healthz
+          port: 8080
+        failureThreshold: 2
+        initialDelaySeconds: 30  # Wait before checking the first time
+        periodSeconds: 5       # Interval between checks
+      readinessProbe:
+        httpGet:
+          path: /readyz
+          port: 80
+        failureThreshold: 2
+        initialDelaySeconds: 30   # Checks much sooner during startup
+        periodSeconds: 5         # Evaluated frequently for quick isolation
       resources:
         requests:
           cpu: "100m"
