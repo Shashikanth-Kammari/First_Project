@@ -13,7 +13,7 @@ spec:
             values:
             - macys         
   containers:
-  - name: with-node-affinity
+  - name: node-affinity
     image: nginx
     imagePullPolicy: always
   tolerations:
