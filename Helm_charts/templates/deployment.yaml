@@ -4,18 +4,18 @@ metadata:
   name: backend
   namespace: macys
   labels:
-    purpose: helm-chart
+    purpose: helm
     app: nginx
 spec:
   replicas: {{ .Values.deployment.replicas }}
   selector:
     matchLabels:
-      purpose: helm-chart
+      purpose: helm
       app: nginx
   template:
     metadata:
       labels:
-        purpose: helm-chart
+        purpose: helm
         app: nginx
     spec:
       containers:
