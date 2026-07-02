@@ -3,7 +3,7 @@ static final String region(){
 }
 
 static final String nexusUrl(){
-    return "db-dev.daws78s.online"
+    return "nexus.daws78s.online:8081"
 }
 
 static final String account_id(){
