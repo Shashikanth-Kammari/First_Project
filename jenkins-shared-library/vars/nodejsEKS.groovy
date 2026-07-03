@@ -62,7 +62,7 @@ def call(Map configMap){
                     script{
                         releaseExists = sh(script: "helm list -A --short | grep -w ${component} || true", returnStdout: true).trim()
                         if(releaseExists.isEmpty()){
-                            echo "${component} not installed yet, first time installation"
+                            echo "${component} helm not installed yet, first time installation"
                             sh"""
                                 aws eks update-kubeconfig --region ${region} --name ${project}-dev
                                 cd helm
