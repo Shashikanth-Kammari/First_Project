@@ -5,7 +5,7 @@ metadata:
   namespace: macys
 spec:
   selector:
-    purpose: helm
+    purpose: helm-chart
     app: nginx
   ports:
     - protocol: TCP
