@@ -8,6 +8,7 @@ def configMap = [
     project: "expense"
 ]
 
+
 if( ! env.BRANCH_NAME.equalsIgnoreCase('main')){
     pipelineDecission.decidePipeline(configMap)
 }
